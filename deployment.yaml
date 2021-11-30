@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-argo-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: my-argo-test
+  template:
+    metadata:
+      labels:
+        run: my-argo-test
+    spec:
+      containers:
+        - image: chlgkwk/argo-cd:dev
+          name: my-argo-test
+          ports:
+            - containerPort: 8080
